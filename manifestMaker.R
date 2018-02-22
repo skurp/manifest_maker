@@ -29,15 +29,20 @@ out <- as.yaml(list(samples=split(replace(index.df, "name", NULL), index.df$name
 cat(out)
 
 # header -----------------------------------------------------------------
-output_loc <- c('xxxx')
+
+#### ask for inputs ######
+
+
+#########################
+output_loc <- readline('What is the output folder name of this experiment?     ')
 reference_head <- c('reference genome: /u/project/dkohn/wconnell/kohn/projects/guideseq/run/reference/Homo_sapiens_assembly19.fasta\n')
 output_head <- paste0('output_folder: ./output/', output_loc, '\n')
 
 undemultiplexed_path <- c('/u/project/dkohn/wconnell/kohn/globus/')
-forward <- c('fff')
-rev <- c('rrr')
-index1 <- c('111')
-index2 <- c('222')
+forward <- paste0('/u/project/dkohn/wconnell/kohn/globus/', readline('What is the folder and file name of the forward (R1) read fastq? (e.g. MiSeq4/K562-Guideseq-VEGF-EMX1_S1_L001_R1_001.fastq.gz)     '))
+rev <- paste0('/u/project/dkohn/wconnell/kohn/globus/', readline('What is the folder and file name of the reverse (R2) read fastq? (e.g. MiSeq4/K562-Guideseq-VEGF-EMX1_S1_L001_R2_001.fastq.gz)     '))
+index1 <- paste0('/u/project/dkohn/wconnell/kohn/globus/', readline('What is the folder and file name of the index1 (I1) read fastq? (e.g. MiSeq4/K562-Guideseq-VEGF-EMX1_S1_L001_I1_001.fastq.gz)     '))
+index2 <- paste0('/u/project/dkohn/wconnell/kohn/globus/', readline('What is the folder and file name of the index2 (I2) read fastq? (e.g. MiSeq4/K562-Guideseq-VEGF-EMX1_S1_L001_I2_001.fastq.gz)     '))
 
 header <- paste0(reference_head,
                  output_head,
