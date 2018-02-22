@@ -23,7 +23,7 @@ index.df <- data.frame(name = as.character(index$name),
                        barcode2 = as.character(index$p5_index),
                        description = as.character(index$name))
 index.df$target <- as.character(index.df$target)
-index.df$target <- ifelse(index.df$target != '', paste0(index.df$target, 'NGG'), ' ')
+index.df$target <- ifelse(index.df$target != '', paste0(index.df$target, 'NGG'), '')
 
 out <- as.yaml(list(samples=split(replace(index.df, "name", NULL), index.df$name)))
 cat(out)
