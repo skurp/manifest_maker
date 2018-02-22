@@ -7,9 +7,12 @@
 ## module load bwa
 ## module load bedtools/2.23.0
 
+# Check if packages are installed, if not, install ------------------------
+list.of.packages <- c("yaml", "data.table", "dplyr")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
 
 # ------------------------------------------------------------------------
-rm(list=ls())
 library(yaml)
 library(data.table)
 library(dplyr)
