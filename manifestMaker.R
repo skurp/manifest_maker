@@ -17,7 +17,8 @@ library(yaml)
 library(data.table)
 library(dplyr)
 
-index <- read.csv("MiSeq4/MiSeq4.csv", col.names = c('name', 'p5_index','p7_index','target'))
+csv_path <- readline("What is the path and filename of the csv containing samples and indices?")
+index <- read.csv(csv_path, col.names = c('name', 'p5_index','p7_index','target'))
 
 # Method ----------------------------------------------------------------
 index.df <- data.frame(name = as.character(index$name),
