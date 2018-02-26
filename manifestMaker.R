@@ -17,7 +17,7 @@ library(yaml)
 library(data.table)
 library(dplyr)
 
-csv_path <- readline("What is the path and filename of the csv containing samples and indices?")
+csv_path <- readline("What is the path and filename of the csv containing sample info?")
 index <- read.csv(csv_path, col.names = c('name', 'p5_index','p7_index','target'))
 
 # Method ----------------------------------------------------------------
