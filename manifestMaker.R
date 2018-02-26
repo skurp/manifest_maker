@@ -49,7 +49,7 @@ index2 <- paste0('/u/project/dkohn/wconnell/kohn/globus/', readline('What is the
 # paste the header together
 header <- paste0(reference_head,
                  output_head,
-                 '\nbwa: bwa\nbedtools: bedtools\n\ndemultiplexed_min_reads: 1000',
+                 '\nbwa: bwa\nbedtools: bedtools\n\ndemultiplex_min_reads: 1000',
                  '\n\nundemultiplexed:\n    forward: ', forward, '\n',
                  '    reverse: ', rev, '\n',
                  '    index1: ', index1, '\n',
