@@ -41,10 +41,10 @@ output_head <- paste0('output_folder: ./output/', output_loc, '\n')
 
 # get the location of fastq files from user
 undemultiplexed_path <- c('/u/project/dkohn/wconnell/kohn/globus/')
-forward <- paste0('/u/project/dkohn/wconnell/kohn/globus/', readline('What is the folder and file name of the forward (R1) read fastq? (e.g. MiSeq4/K562-Guideseq-VEGF-EMX1_S1_L001_R1_001.fastq.gz)     '))
-rev <- paste0('/u/project/dkohn/wconnell/kohn/globus/', readline('What is the folder and file name of the reverse (R2) read fastq? (e.g. MiSeq4/K562-Guideseq-VEGF-EMX1_S1_L001_R2_001.fastq.gz)     '))
-index1 <- paste0('/u/project/dkohn/wconnell/kohn/globus/', readline('What is the folder and file name of the index1 (I1) read fastq? (e.g. MiSeq4/K562-Guideseq-VEGF-EMX1_S1_L001_I1_001.fastq.gz)     '))
-index2 <- paste0('/u/project/dkohn/wconnell/kohn/globus/', readline('What is the folder and file name of the index2 (I2) read fastq? (e.g. MiSeq4/K562-Guideseq-VEGF-EMX1_S1_L001_I2_001.fastq.gz)     '))
+forward <- paste0('/u/project/dkohn/wconnell/kohn/globus/', readline('What is the folder and file name of the forward (R1) read fastq? (e.g. kuo_MiSeq4/K562-Guideseq-VEGF-EMX1_S1_L001_R1_001.fastq.gz)     '))
+rev <- paste0('/u/project/dkohn/wconnell/kohn/globus/', readline('What is the folder and file name of the reverse (R2) read fastq? (e.g. kuo_MiSeq4/K562-Guideseq-VEGF-EMX1_S1_L001_R2_001.fastq.gz)     '))
+index1 <- paste0('/u/project/dkohn/wconnell/kohn/globus/', readline('What is the folder and file name of the index1 (I1) read fastq? (e.g. kuo_MiSeq4/K562-Guideseq-VEGF-EMX1_S1_L001_I1_001.fastq.gz)     '))
+index2 <- paste0('/u/project/dkohn/wconnell/kohn/globus/', readline('What is the folder and file name of the index2 (I2) read fastq? (e.g. kuo_MiSeq4/K562-Guideseq-VEGF-EMX1_S1_L001_I2_001.fastq.gz)     '))
 
 # paste the header together
 header <- paste0(reference_head,
