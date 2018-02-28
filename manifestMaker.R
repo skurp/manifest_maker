@@ -17,7 +17,7 @@ library(yaml)
 library(data.table)
 library(dplyr)
 
-csv_path <- readline("What is the path and filename of the csv containing sample info?     ")
+csv_path <- readline("What is the path and filename of the csv containing sample info?     \n")
 index <- read.csv(csv_path, col.names = c('name', 'p5_index','p7_index','target'))
 
 # Method ----------------------------------------------------------------
@@ -38,7 +38,7 @@ reference_head <- c('reference_genome: /u/project/dkohn/wconnell/kohn/projects/g
 # get the output file location from user
 output_loc <- readline('What is the output folder name of this experiment?     ')
 output_head <- paste0('output_folder: ./output/', output_loc, '\n')
-
+demux <- readline('Minimum number of reads required for demultiplexing:     ')
 # get the location of fastq files from user
 undemultiplexed_path <- c('/u/project/dkohn/wconnell/kohn/globus/')
 forward <- paste0('/u/project/dkohn/wconnell/kohn/globus/', readline('What is the folder and file name of the forward (R1) read fastq? (e.g. kuo_MiSeq4/K562-Guideseq-VEGF-EMX1_S1_L001_R1_001.fastq.gz)     '))
@@ -49,7 +49,7 @@ index2 <- paste0('/u/project/dkohn/wconnell/kohn/globus/', readline('What is the
 # paste the header together
 header <- paste0(reference_head,
                  output_head,
-                 '\nbwa: bwa\nbedtools: bedtools\n\ndemultiplex_min_reads: 1000',
+                 '\nbwa: bwa\nbedtools: bedtools\n\ndemultiplex_min_reads: ', demux,
                  '\n\nundemultiplexed:\n    forward: ', forward, '\n',
                  '    reverse: ', rev, '\n',
                  '    index1: ', index1, '\n',
