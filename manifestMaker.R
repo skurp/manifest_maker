@@ -64,5 +64,5 @@ final <- paste0(header, out)
 # concatenate the final yaml
 cat(final)
 # write it out to location
-filename <- readline('What would you like to call this file?     ')
+filename <- readline('What would you like to call this file (please include .yaml)?     ')
 write(final, filename)
