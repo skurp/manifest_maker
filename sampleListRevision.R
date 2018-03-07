@@ -1,7 +1,7 @@
-# Will Connell
-# 2018.03.05
-# Remove unnsuccessfully demultiplexed samples from sample list
-# UNIX command: find . -name ".r1.fastq" >> demux.txt
+## Will Connell
+## 2018.03.05
+## Remove unnsuccessfully demultiplexed samples from sample list
+## UNIX command: find . -name ".r1.fastq" >> demux.txt
 
 # User input paths to files
 success_demux <- readline('Provide the relative path to where the list of successfully demultiplexed samples is located:     ')
@@ -29,5 +29,5 @@ revised_sample <- inner_join(index2, demux2)
 
 new_revised_sample_csv <- readline("Provide new csv path and file name which will contain the revised sample list:     ")
 write.csv(x = revised_sample, file = new_revised_sample_csv, col.names = TRUE)
-print('Completed generating new sample list.')
+print('Completed generating new sample csv list.')
 
