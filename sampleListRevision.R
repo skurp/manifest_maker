@@ -10,7 +10,7 @@ csv_path <- readline('What is the relative path to the original csv containing s
 index2 <- read.csv(csv_path, col.names = c('name', 'p5_index','p7_index','target'))
 demux2 <- read.table(success_demux, col.names = c('sample'))
 
-# Method ----------------------------------------------------------------
+# clean up original sample names
 index2.df <- data.frame(name = as.character(index2$name),
                        target = as.character(index2$target),
                        barcode1 = as.character(index2$p7_index),
@@ -18,6 +18,7 @@ index2.df <- data.frame(name = as.character(index2$name),
                        description = as.character(index2$name))
 index2.df$target <- as.character(index2.df$target)
 
+# clean up sample names that were able to demultiplex
 demux2$edit <- gsub(pattern = "./", replacement = "", x = demux2$sample)
 demux2$name <- gsub(pattern = ".r1.fastq", replacement = "", x=demux2$edit)
 demux2$sample <- NULL
