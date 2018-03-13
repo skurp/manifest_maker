@@ -22,12 +22,17 @@ index2.df$target <- as.character(index2.df$target)
 demux2$edit <- gsub(pattern = "./", replacement = "", x = demux2$sample)
 demux2$name <- gsub(pattern = ".r1.fastq", replacement = "", x=demux2$edit)
 demux2$sample <- NULL
-demux$edit <- NULL
+demux2$edit <- NULL
 
 # will perform join by 'name' column automatically
+# saves list of successfully demultiplexed samples
 revised_sample <- inner_join(index2, demux2)
-
-new_revised_sample_csv <- readline("Provide new csv path and file name which will contain the revised sample list:     ")
+# output a list of the samples that did not demultiplex
+print('Samples that failed to demultiplex:')
+fail_demux <- anti_join(index2, demux2)
+fail_demux$name
+# save new sample list
+new_revised_sample_csv <- readline("Provide new file path and .csv name which will contain the revised sample list:     ")
 write.csv(x = revised_sample, file = new_revised_sample_csv, col.names = TRUE)
 print('Completed generating new sample csv list.')
 
