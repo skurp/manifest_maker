@@ -3,6 +3,15 @@
 ## Remove unnsuccessfully demultiplexed samples from sample list
 ## UNIX command: find . -name ".r1.fastq" >> demux.txt
 
+# Check if packages are installed, if not, install ------------------------
+list.of.packages <- c("dplyr")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+
+# ------------------------------------------------------------------------
+library(dplyr)
+# ------------------------------------------------------------------------
+
 # User input paths to files
 success_demux <- readline('Provide the relative path to where the list of successfully demultiplexed samples is located:     ')
 csv_path <- readline('What is the relative path to the original csv containing sample info?     ')
@@ -30,9 +39,10 @@ revised_sample <- inner_join(index2, demux2)
 # output a list of the samples that did not demultiplex
 print('Samples that failed to demultiplex:')
 fail_demux <- anti_join(index2, demux2)
-fail_demux$name
+print(fail_demux$name)
+
 # save new sample list
 new_revised_sample_csv <- readline("Provide new file path and .csv name which will contain the revised sample list:     ")
-write.csv(x = revised_sample, file = new_revised_sample_csv, col.names = TRUE)
+write.csv(x = revised_sample, file = new_revised_sample_csv, col.names = TRUE, row.names = FALSE)
 print('Completed generating new sample csv list.')
 
