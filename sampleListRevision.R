@@ -21,10 +21,9 @@ demux2 <- read.table(success_demux, col.names = c('sample'))
 
 # clean up original sample names
 index2.df <- data.frame(name = as.character(index2$name),
-                       target = as.character(index2$target),
-                       barcode1 = as.character(index2$p7_index),
-                       barcode2 = as.character(index2$p5_index),
-                       description = as.character(index2$name))
+                       p5_index = as.character(index2$p5_index),
+                       p7_index = as.character(index2$p7_index),
+                       target = as.character(index2$target))
 index2.df$target <- as.character(index2.df$target)
 
 # clean up sample names that were able to demultiplex
@@ -35,14 +34,15 @@ demux2$edit <- NULL
 
 # will perform join by 'name' column automatically
 # saves list of successfully demultiplexed samples
-revised_sample <- inner_join(index2, demux2)
+revised_sample <- semi_join(index2.df, demux2)
+
 # output a list of the samples that did not demultiplex
 print('Samples that failed to demultiplex:')
-fail_demux <- anti_join(index2, demux2)
+fail_demux <- anti_join(index2.df, demux2)
 print(fail_demux$name)
 
 # save new sample list
 new_revised_sample_csv <- readline("Provide new file path and .csv name which will contain the revised sample list:     ")
-write.csv(x = revised_sample, file = new_revised_sample_csv, col.names = TRUE, row.names = FALSE)
+write.csv(x = revised_sample, file = new_revised_sample_csv, col.names = TRUE)
 print('Completed generating new sample csv list.')
 
