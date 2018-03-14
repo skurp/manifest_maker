@@ -43,6 +43,6 @@ print(fail_demux$name)
 
 # save new sample list
 new_revised_sample_csv <- readline("Provide new file path and .csv name which will contain the revised sample list:     ")
-write.csv(x = revised_sample, file = new_revised_sample_csv, col.names = TRUE)
+write.csv(x = revised_sample, file = new_revised_sample_csv, col.names = TRUE, row.names = FALSE)
 print('Completed generating new sample csv list.')
 
